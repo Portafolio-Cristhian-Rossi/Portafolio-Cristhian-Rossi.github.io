@@ -201,7 +201,8 @@ p { margin: 0 0 1em; }
 }
 .visor::backdrop { background: rgb(0 0 0 / 0.8); }
 .visor img {
-  max-height: 90vh;
+  /* Deja lugar para el botón Cerrar: si no, en un celular apaisado el visor se corta */
+  max-height: calc(90vh - 3rem);
   max-width: 100%;
   width: auto;
   object-fit: contain;
