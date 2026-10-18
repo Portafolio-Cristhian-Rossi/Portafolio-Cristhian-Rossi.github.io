@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>auto-catalog — Cristhian Rossi</title>
+  <meta name="description" content="Inventario y catálogos PDF automáticos para una distribuidora de repuestos de bicicleta.">
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+  <nav class="barra">
+    <div class="contenedor">
+      <a href="../">Cristhian Rossi</a>
+      <a href="../#proyectos">Proyectos</a>
+    </div>
+  </nav>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <span class="etiqueta">Proyecto · Distribuidora de repuestos de bicicleta</span>
+      <h1>auto-catalog</h1>
+      <p class="bajada">Inventario y catálogos PDF automáticos para una distribuidora de repuestos de bicicleta.</p>
+      <div class="acciones">
+        <span class="boton boton--deshabilitado">Catálogo PDF: próximamente</span>
+        <span class="nota">Código disponible a pedido.</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="seccion lectura">
+      <h2>El problema</h2>
+      <p>El dueño de la distribuidora armaba los catálogos a mano: fotos, códigos y precios acomodados página por página. Cada vez que cambiaba un precio o se terminaba un producto había que volver a tocarlo, y era fácil que un catálogo viejo siguiera circulando.</p>
+      <p>Con auto-catalog carga cada producto una sola vez. El sistema arma el catálogo en PDF, avisa lo que está sin stock y hace backups solo.</p>
+    </section>
+
+    <section class="seccion">
+      <h2>Qué hace</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Catálogo PDF automático</h3>
+          <p>Portada, índice clickeable con el bosquejo de la bici, una apertura por sección y fichas de 6 por página. Los productos con versiones salen en una sola ficha, y los que tienen muchas fotos ocupan la fila entera.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Avisos al abrir</h3>
+          <p>La pantalla de inicio dice si un catálogo en circulación quedó desactualizado: productos sin stock, discontinuados, con otro precio o que hoy entrarían y no están.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Migración desde los PDF viejos</h3>
+          <p>Un script con PyMuPDF sacó los productos y las fotos de los catálogos hechos a mano. Deja un CSV para revisar en Excel y la importación valida todo antes de guardar.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Backups solos</h3>
+          <p>Uno por día, uno antes de importar y uno antes de generar un catálogo, con rotación por días y semanas. Se restauran con un comando.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Instalador para el cliente</h3>
+          <p>Un <code>.exe</code> que trae su propio Python con todo lo necesario: la PC del cliente no necesita instalar nada más ni permisos de administrador.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>Galería</h2>
+      <h3 class="subtitulo-galeria">El catálogo</h3>
+      <ul class="galeria">
+        <li><figure>
+          <a class="ampliable" href="img/catalogo-portada.webp"><img src="img/catalogo-portada.webp" width="1200" height="1699" loading="lazy" alt="Portada del catálogo con el logo y fotos de productos"></a>
+          <figcaption>Portada</figcaption>
+        </figure></li>
+        <li><figure>
+          <a class="ampliable" href="img/catalogo-indice.webp"><img src="img/catalogo-indice.webp" width="1200" height="1699" loading="lazy" alt="Índice del catálogo con el bosquejo de la bici y links a cada sección"></a>
+          <figcaption>Índice con el bosquejo de la bici</figcaption>
+        </figure></li>
+        <li><figure>
+          <a class="ampliable" href="img/catalogo-apertura.webp"><img src="img/catalogo-apertura.webp" width="1200" height="1699" loading="lazy" alt="Página de apertura de una sección del catálogo"></a>
+          <figcaption>Apertura de sección</figcaption>
+        </figure></li>
+        <li><figure>
+          <a class="ampliable" href="img/catalogo-fichas.webp"><img src="img/catalogo-fichas.webp" width="1200" height="1699" loading="lazy" alt="Página de fichas de productos con fotos, códigos, precios y una ficha ancha"></a>
+          <figcaption>Fichas de productos</figcaption>
+        </figure></li>
+      </ul>
+
+      <h3 class="subtitulo-galeria">El panel</h3>
+      <ul class="galeria">
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-inicio.webp"><img src="img/panel-inicio.webp" width="1200" height="750" loading="lazy" alt="Pantalla de inicio del panel con el estado de los catálogos en circulación, el stock y los backups"></a>
+          <figcaption>Inicio: estado de los catálogos, el stock y los backups</figcaption>
+        </figure></li>
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-productos.webp"><img src="img/panel-productos.webp" width="1200" height="750" loading="lazy" alt="Lista de productos del inventario con filtros"></a>
+          <figcaption>Lista de productos</figcaption>
+        </figure></li>
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-producto.webp"><img src="img/panel-producto.webp" width="1200" height="750" loading="lazy" alt="Formulario de un producto con el código, el nombre, la marca, el tipo de pieza y las viñetas"></a>
+          <figcaption>Ficha de un producto</figcaption>
+        </figure></li>
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-bosquejo.webp"><img src="img/panel-bosquejo.webp" width="1200" height="750" loading="lazy" alt="Editor del bosquejo del índice con las etiquetas de cada sección sobre el dibujo de la bici"></a>
+          <figcaption>Editor del bosquejo del índice</figcaption>
+        </figure></li>
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-diseno.webp"><img src="img/panel-diseno.webp" width="1200" height="750" loading="lazy" alt="Pantalla de diseño del catálogo con el logo, la portada y las imágenes de cada sección"></a>
+          <figcaption>Diseño del catálogo</figcaption>
+        </figure></li>
+        <li class="ancha"><figure>
+          <a class="ampliable" href="img/panel-generar.webp"><img src="img/panel-generar.webp" width="1200" height="750" loading="lazy" alt="Formulario para generar un catálogo completo o de novedades"></a>
+          <figcaption>Generar un catálogo</figcaption>
+        </figure></li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2>Cómo funciona por dentro</h2>
+      <p class="lectura">El catálogo se maqueta como una página web, con HTML y CSS, y lo imprime a PDF el Microsoft Edge que ya trae Windows. Después, PyMuPDF corrige los links del índice para que salten a cada capítulo.</p>
+      <div class="diagrama">
+        <svg class="horizontal" viewBox="0 0 960 150" width="100%" role="img"
+             aria-label="Del panel Django a la base SQLite, a la plantilla HTML, a la impresión con Edge y Playwright, al PDF, y PyMuPDF arregla los links">
+          <defs>
+            <marker id="flecha-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="punta" d="M0 0 L10 5 L0 10 z"/>
+            </marker>
+          </defs>
+          <g>
+            <rect class="caja" x="10" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="75" y="70" text-anchor="middle">Panel</text>
+            <text class="detalle" x="75" y="90" text-anchor="middle">Django</text>
+          </g>
+          <g>
+            <rect class="caja" x="172" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="237" y="70" text-anchor="middle">Base</text>
+            <text class="detalle" x="237" y="90" text-anchor="middle">SQLite</text>
+          </g>
+          <g>
+            <rect class="caja" x="334" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="399" y="70" text-anchor="middle">Plantilla</text>
+            <text class="detalle" x="399" y="90" text-anchor="middle">HTML + CSS</text>
+          </g>
+          <g>
+            <rect class="caja" x="496" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="561" y="70" text-anchor="middle">Impresión</text>
+            <text class="detalle" x="561" y="90" text-anchor="middle">Edge · Playwright</text>
+          </g>
+          <g>
+            <rect class="caja caja--acento" x="658" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="723" y="70" text-anchor="middle">PDF</text>
+            <text class="detalle" x="723" y="90" text-anchor="middle">A4</text>
+          </g>
+          <g>
+            <rect class="caja" x="820" y="40" width="130" height="70" rx="10"/>
+            <text class="titulo" x="885" y="70" text-anchor="middle">Links</text>
+            <text class="detalle" x="885" y="90" text-anchor="middle">PyMuPDF</text>
+          </g>
+          <path class="flecha" d="M140 75 H170" marker-end="url(#flecha-h)"/>
+          <path class="flecha" d="M302 75 H332" marker-end="url(#flecha-h)"/>
+          <path class="flecha" d="M464 75 H494" marker-end="url(#flecha-h)"/>
+          <path class="flecha" d="M626 75 H656" marker-end="url(#flecha-h)"/>
+          <path class="flecha" d="M788 75 H818" marker-end="url(#flecha-h)"/>
+        </svg>
+        <svg class="vertical" viewBox="0 0 260 564" width="100%" role="img"
+             aria-label="Del panel Django a la base SQLite, a la plantilla HTML, a la impresión con Edge y Playwright, al PDF, y PyMuPDF arregla los links">
+          <defs>
+            <marker id="flecha-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="punta" d="M0 0 L10 5 L0 10 z"/>
+            </marker>
+          </defs>
+          <rect class="caja" x="40" y="10" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="38" text-anchor="middle">Panel</text>
+          <text class="detalle" x="130" y="58" text-anchor="middle">Django</text>
+          <rect class="caja" x="40" y="106" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="134" text-anchor="middle">Base</text>
+          <text class="detalle" x="130" y="154" text-anchor="middle">SQLite</text>
+          <rect class="caja" x="40" y="202" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="230" text-anchor="middle">Plantilla</text>
+          <text class="detalle" x="130" y="250" text-anchor="middle">HTML + CSS</text>
+          <rect class="caja" x="40" y="298" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="326" text-anchor="middle">Impresión</text>
+          <text class="detalle" x="130" y="346" text-anchor="middle">Edge · Playwright</text>
+          <rect class="caja caja--acento" x="40" y="394" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="422" text-anchor="middle">PDF</text>
+          <text class="detalle" x="130" y="442" text-anchor="middle">A4</text>
+          <rect class="caja" x="40" y="490" width="180" height="64" rx="10"/>
+          <text class="titulo" x="130" y="518" text-anchor="middle">Links</text>
+          <text class="detalle" x="130" y="538" text-anchor="middle">PyMuPDF</text>
+          <path class="flecha" d="M130 74 V104" marker-end="url(#flecha-v)"/>
+          <path class="flecha" d="M130 170 V200" marker-end="url(#flecha-v)"/>
+          <path class="flecha" d="M130 266 V296" marker-end="url(#flecha-v)"/>
+          <path class="flecha" d="M130 362 V392" marker-end="url(#flecha-v)"/>
+          <path class="flecha" d="M130 458 V488" marker-end="url(#flecha-v)"/>
+        </svg>
+      </div>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>Python</li>
+        <li>Django</li>
+        <li>SQLite</li>
+        <li>Pillow</li>
+        <li>PyMuPDF</li>
+        <li>Playwright</li>
+        <li>Inno Setup</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2>Decisiones</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Local y sin servidor</h3>
+          <p>El dueño trabaja en una sola PC. Corriendo ahí, la app no tiene costo mensual, anda sin internet y los datos no salen de su máquina. Para no perderlos están los backups, que pueden ir a OneDrive o a un disco externo.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Stock sí o no</h3>
+          <p>El dueño sabe si tiene un producto, no cuántos. Una cantidad que nadie mantiene al día es peor que no tenerla, así que el stock es un sí o un no: lo que no está sale del catálogo o aparece con el sello SIN STOCK.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Backup antes de lo riesgoso</h3>
+          <p>Antes de importar productos se hace un backup, y si falla no se importa. Antes de generar un catálogo también se intenta uno. Y restaurar un backup guarda primero el estado actual, para poder deshacerlo.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <ul class="contacto">
+        <li><a href="mailto:cris.nico.rossi@gmail.com">cris.nico.rossi@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/cristhian-rossi/">LinkedIn</a></li>
+        <li><a href="https://github.com/CNR0551">GitHub</a></li>
+      </ul>
+      <p><a href="../">← Volver al inicio</a></p>
+    </div>
+  </footer>
+
+  <dialog class="visor" aria-label="Imagen ampliada">
+    <img src="data:," alt="Imagen ampliada">
+    <button type="button">Cerrar</button>
+  </dialog>
+  <script>
+    // Galería: al tocar una imagen se amplía; sin JavaScript, el link abre la imagen sola.
+    const visor = document.querySelector(".visor");
+    const imagen = visor.querySelector("img");
+    document.querySelectorAll(".ampliable").forEach((link) => {
+      link.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        const miniatura = link.querySelector("img");
+        imagen.src = link.href;
+        imagen.alt = miniatura ? miniatura.alt : "";
+        visor.showModal();
+      });
+    });
+    visor.querySelector("button").addEventListener("click", () => visor.close());
+    visor.addEventListener("click", (evento) => {
+      if (evento.target === visor) visor.close();
+    });
+  </script>
+</body>
+</html>

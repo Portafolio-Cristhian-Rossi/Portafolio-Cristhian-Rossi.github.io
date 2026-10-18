@@ -1,0 +1,278 @@
+/* Portafolio de Cristhian Rossi: un solo CSS para todas las páginas. */
+
+:root {
+  color-scheme: light dark;
+  --fondo: #f7f6f3;
+  --superficie: #ffffff;
+  --texto: #1d1d1b;
+  --texto-suave: #5b5a55;
+  --borde: #e2e0da;
+  --acento: #c2410c;
+  --acento-texto: #ffffff;
+  --acento-suave: #fbe9df;
+  --sombra: 0 1px 2px rgb(0 0 0 / 0.06), 0 4px 16px rgb(0 0 0 / 0.05);
+  --radio: 12px;
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #141413;
+    --superficie: #1e1e1c;
+    --texto: #ecebe6;
+    --texto-suave: #a7a59e;
+    --borde: #34332f;
+    --acento: #fb923c;
+    --acento-texto: #1a0d05;
+    --acento-suave: #3a2213;
+    --sombra: 0 1px 2px rgb(0 0 0 / 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--acento); }
+
+h1, h2, h3 { line-height: 1.2; overflow-wrap: anywhere; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 6vw, 3.25rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1em; }
+
+.contenedor {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 700px) {
+  .contenedor { padding-inline: 32px; }
+}
+
+.lectura { max-width: 44rem; }
+
+/* Barra de arriba */
+.barra {
+  border-bottom: 1px solid var(--borde);
+  background: var(--superficie);
+}
+.barra .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+}
+.barra a { color: var(--texto); text-decoration: none; font-weight: 600; }
+.barra a:hover { color: var(--acento); }
+
+/* Encabezado */
+.encabezado { padding: 3.5rem 0 2.5rem; }
+.encabezado .bajada {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: var(--texto-suave);
+  max-width: 40rem;
+}
+.etiqueta {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--acento);
+  margin-bottom: 0.75rem;
+}
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+}
+.nota { color: var(--texto-suave); font-size: 0.95rem; }
+
+.boton {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: var(--acento);
+  color: var(--acento-texto);
+  font-weight: 600;
+  text-decoration: none;
+}
+.boton:hover { filter: brightness(1.08); }
+.boton--deshabilitado {
+  background: var(--borde);
+  color: var(--texto-suave);
+  cursor: default;
+}
+.boton--deshabilitado:hover { filter: none; }
+
+/* Secciones */
+.seccion { padding: 2.5rem 0; border-top: 1px solid var(--borde); }
+
+/* Tarjetas */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+}
+.tarjeta p:last-child { margin-bottom: 0; }
+.tarjeta p { color: var(--texto-suave); }
+
+/* Tarjeta de proyecto (inicio) */
+.proyecto {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.proyecto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid var(--borde);
+}
+.proyecto .cuerpo { padding: 1.25rem; }
+.proyecto:hover h3 { color: var(--acento); }
+.proyecto .ver { color: var(--acento); font-weight: 600; }
+
+/* Galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.galeria figure { margin: 0; }
+.galeria a {
+  display: block;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--superficie);
+}
+.galeria img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.2s;
+}
+.galeria .ancha img { aspect-ratio: 16 / 10; }
+.galeria a:hover img { transform: scale(1.02); }
+.galeria figcaption { font-size: 0.9rem; color: var(--texto-suave); padding: 0.5rem 0.25rem 0; }
+.subtitulo-galeria { margin-top: 2rem; }
+
+/* Visor de imágenes */
+.visor {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(96vw, 1200px);
+  max-height: 96vh;
+}
+.visor::backdrop { background: rgb(0 0 0 / 0.8); }
+.visor img {
+  max-height: 90vh;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.visor button {
+  display: block;
+  margin: 0.5rem auto 0;
+  font: inherit;
+  color: #fff;
+  background: rgb(255 255 255 / 0.15);
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+/* Diagrama */
+.diagrama {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1rem;
+  margin: 1.25rem 0;
+  color: var(--texto);
+}
+.diagrama .vertical { display: none; }
+@media (max-width: 600px) {
+  .diagrama .horizontal { display: none; }
+  .diagrama .vertical { display: block; max-width: 20rem; margin: 0 auto; }
+}
+
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tecnologias li {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--acento-suave);
+  color: var(--texto);
+}
+
+/* Pie */
+.pie {
+  border-top: 1px solid var(--borde);
+  margin-top: 2rem;
+  padding: 2rem 0 3rem;
+  color: var(--texto-suave);
+}
+.contacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.contacto a { font-weight: 600; overflow-wrap: anywhere; }
+
+/* Diagrama en SVG: toma los colores de las variables, así anda en modo oscuro */
+.diagrama .caja { fill: var(--fondo); stroke: var(--borde); stroke-width: 1.5; }
+.diagrama .caja--acento { fill: var(--acento-suave); stroke: var(--acento); }
+.diagrama .flecha { stroke: var(--texto-suave); stroke-width: 2; fill: none; }
+.diagrama .punta { fill: var(--texto-suave); }
+.diagrama .titulo { fill: var(--texto); font: 600 16px var(--fuente); }
+.diagrama .detalle { fill: var(--texto-suave); font: 12px var(--fuente); }
